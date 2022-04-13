@@ -1,0 +1,36 @@
+---
+- name: POWER-OFF JUNIPER DEVICES
+  hosts: all
+  roles:
+    - Juniper.junos
+  connection: local
+  gather_facts: no
+  vars_files:
+    - vault/secrets.yml
+
+
+  tasks:
+
+    - name: checking for SSH connectivity
+      wait_for:
+        host: "{{ ansible_host }}"
+        port: 22
+        timeout: 5
+
+    - name: get uptime information
+      juniper_junos_rpc:
+        rpcs:
+          - get-system-uptime-information
+        provider: "{{ root_credentials }}"
+      register: get_uptime
+
+    - name: query uptime information
+      xml:
+        xmlstring: "{{ get_uptime.stdout }}"
+        xpath: //date-time
+        content: text
+      register: uptime
+
+    - name: display results
+      debug:
+        var: uptime.matches[0]

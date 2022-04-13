@@ -1,0 +1,282 @@
+[all:children]
+junos
+cisco
+panos
+
+
+#############[ JUNIPER GROUPS ]#############
+[junos:children]
+lol_gameserver_junos
+cmob_lg
+cmob_sm
+ams2
+ber
+las
+lax
+nrt
+sin
+wmc
+wmc1
+wmc2
+
+[lol_gameserver_junos:children]
+ams1
+gru2
+icn2
+mex1
+ist2
+syd2
+
+[f_building:children]
+wmc
+wmc1
+wmc2
+
+[ams1]
+ams1_esports_game_tor_sw    ansible_host=10.104.1.2         
+
+[gru2]
+gru2_esports_game_tor_sw    ansible_host=10.104.2.2
+
+[icn2]
+icn2_esports_game_tor_sw    ansible_host=10.104.3.2
+
+[mex1]
+mex1_esports_game_tor_sw    ansible_host=10.104.4.1
+
+[ist2]
+ist2_esports_game_tor_sw    ansible_host=10.104.5.2
+
+[syd2]
+syd2_esports_game_tor_sw    ansible_host=10.104.8.2
+
+[ams2]
+ams2-esports-cdc-core-sw    ansible_host=10.104.255.23
+
+[ber]
+[las]
+[lax]
+[nrt]
+[sin]
+
+[wmc]
+wmc_edge_srxvpns            ansible_host=10.104.255.2
+wmc-core-rt01	            ansible_host=10.104.255.1
+wmc-edge-rt01	            ansible_host=10.240.0.4
+
+[wmc1]
+wmc1_core_sw                ansible_host=10.240.0.5
+wmc1_core_fw00              ansible_host=10.240.0.1
+wmc1_encoders_sw            ansible_host=10.240.0.16
+wmc1_bcast_stream           ansible_host=10.240.0.15
+wmc1_bcast_nevion           ansible_host=10.240.0.20
+wmc1_bcast_a_sw             ansible_host=10.240.0.6
+wmc1_bcast_b_sw             ansible_host=10.240.0.17
+wmc1_bcast_c_sw             ansible_host=10.240.0.23
+wmc1_bcast_audio            ansible_host=10.240.0.19
+wmc1_studio_a_stage_sw01    ansible_host=10.240.0.32
+wmc1_audio_sw               ansible_host=10.240.0.12
+wmc1_arcade_sw              ansible_host=10.240.0.54
+wmc1_gr_agg_sw              ansible_host=10.240.0.40
+wmc1_idf1027_sw             ansible_host=10.240.0.11
+wmc1_idf1202_sw             ansible_host=10.240.0.14
+wmc1_itlab_lab3_sw01        ansible_host=10.240.0.37
+wmc1_itlab_lab4_sw01        ansible_host=10.240.0.38
+wmc1_oob01_sw01             ansible_host=10.240.0.25
+wmc1_rm1302_sw01            ansible_host=10.240.0.8
+wmc1_rm1303_sw01            ansible_host=10.240.0.9
+
+
+[wmc2]
+wmc2-core-sw01              ansible_host=10.240.128.5
+wmc2-oob1	                ansible_host=10.240.128.6
+wmc2-tech-lab-rack-sw01	    ansible_host=10.240.128.8
+
+[cmob_sm]
+[cmob_lg]
+
+
+########## [CMOB 2] ##########
+[cmob2:children]
+cmob2_srx
+cmob2_ex
+
+[cmob2_srx]
+cmob2_edge_fw               ansible_host=10.104.255.18
+
+[cmob2_ex:children]
+cmob2_core_sw
+cmob2_agg_sw
+cmob2_access_sw
+
+[cmob2_core_sw]
+
+[cmob2_agg_sw]
+sw128                       ansible_host=10.105.32.128
+sw147                       ansible_host=10.105.32.147
+
+
+[cmob2_access_sw]
+sw81                        ansible_host=10.105.32.81
+sw83                        ansible_host=10.105.32.83
+sw84                        ansible_host=10.105.32.84
+sw85                        ansible_host=10.105.32.85
+sw87                        ansible_host=10.105.32.87
+sw88                        ansible_host=10.105.32.88
+sw90                        ansible_host=10.105.32.90
+sw91                        ansible_host=10.105.32.91
+sw92                        ansible_host=10.105.32.92
+sw94                        ansible_host=10.105.32.94
+sw95                        ansible_host=10.105.32.95
+sw96                        ansible_host=10.105.32.96
+sw97                        ansible_host=10.105.32.97
+sw98                        ansible_host=10.105.32.98
+sw99                        ansible_host=10.105.32.99
+sw111                       ansible_host=10.105.32.111
+sw113                       ansible_host=10.105.32.113
+sw114                       ansible_host=10.105.32.114
+sw128                       ansible_host=10.105.32.128
+sw147                       ansible_host=10.105.32.147
+sw148                       ansible_host=10.105.32.148
+sw160                       ansible_host=10.105.32.160
+
+
+
+########## [CMOB 3] ##########
+[cmob3:children]
+cmob3_ex
+
+
+[cmob3_ex:children]
+cmob3_core
+cmob3_agg_sw
+cmob3_access_sw
+
+[cmob3_core]
+cmob3_core_sw               ansible_host=172.29.104.5
+
+[cmob3_agg_sw]
+sw116                       ansible_host=172.29.104.116
+sw117                       ansible_host=172.29.104.117
+sw118                       ansible_host=172.29.104.118
+
+[cmob3_access_sw]
+sw51                        ansible_host=172.29.104.51
+sw52                        ansible_host=172.29.104.52
+sw53                        ansible_host=172.29.104.53
+sw54                        ansible_host=172.29.104.54
+sw55                        ansible_host=172.29.104.55
+sw60                        ansible_host=172.29.104.60
+sw61                        ansible_host=172.29.104.61
+sw62                        ansible_host=172.29.104.62
+sw65                        ansible_host=172.29.104.65
+sw69                        ansible_host=172.29.104.69
+sw71                        ansible_host=172.29.104.71
+sw76                        ansible_host=172.29.104.76
+sw77                        ansible_host=172.29.104.77
+sw78                        ansible_host=172.29.104.78
+sw132                       ansible_host=172.29.104.132
+sw145                       ansible_host=172.29.104.145
+
+
+#####[ GROUP FOR SHUTTING DOWN SWITCHES ]#####
+[junos_shutdown]
+sw98
+
+###############[ CISCO GROUPS ]###############
+[cisco:children]
+snowballs
+lol_gameserver_cisco
+stryker
+wmc_lab
+
+[lol_gameserver_cisco:children]
+lax2
+ord2
+scl1
+bog1
+
+[stryker:children]
+dub01
+dub02
+
+[snowballs:children]
+snow1
+snow2
+snow3
+snow4
+snow5
+
+[ord2]
+ord2_core_rt01              ansible_host=10.104.6.2
+ord2_core_rt02              ansible_host=10.104.6.3
+
+[scl1]
+scl1_core_rt01              ansible_host=10.104.9.2
+scl1_core_rt02              ansible_host=10.104.9.3
+
+[lax2]
+lax2_core_rt01              ansible_host=10.104.10.2
+lax2_core_rt02              ansible_host=10.104.10.3
+
+[bog1]
+bog1_core_rt01              ansible_host=10.104.12.2
+bog1_core_rt02              ansible_host=10.104.12.3
+
+[dub01:children]
+dub01_edge
+dub01_core
+
+[dub01_edge]
+dub01_edge_rt01             ansible_host=10.104.255.143
+dub01_edge_rt02             ansible_host=10.104.255.144
+
+[dub01_core]
+dub01_core_sw01             ansible_host=10.104.96.4
+dub01_core_sw02             ansible_host=10.104.96.5
+
+[dub02:children]
+dub02_edge
+dub02_core
+dub02_access
+
+[dub02_edge]
+dub02_edge_rt01             ansible_host=10.104.255.140
+dub02_edge_rt02             ansible_host=10.104.255.141
+
+[dub02_core]
+dub02_core_sw01             ansible_host=10.104.112.4
+dub02_core_sw02             ansible_host=10.104.112.5
+
+[dub02_access]
+dub02_access_sw09           ansible_host=10.104.112.19
+dub02_access_sw10           ansible_host=10.104.112.20
+
+[snow1]
+snow1-core-sw01             ansible_host=10.104.46.4
+snow1-core-sw02             ansible_host=10.104.46.5
+
+[snow2]
+snow2-core-sw01             ansible_host=10.104.48.4
+snow2-core-sw02             ansible_host=10.104.48.5
+
+[snow3]
+snow3-core-sw01             ansible_host=10.104.50.4
+snow3-core-sw02             ansible_host=10.104.50.5
+
+[snow4]
+snow4-core-sw01             ansible_host=10.104.52.4
+snow4-core-sw02             ansible_host=10.104.52.5
+
+[snow5]
+snow5-core-sw01             ansible_host=10.104.54.4
+snow5-core-sw02             ansible_host=10.104.54.5
+
+[wmc_lab]
+wmclab_dc_core_sw01         ansible_host=10.104.255.133
+wmclab_dc_leaf_rt01         ansible_host=10.104.255.131
+
+#############[ PALO ALTO GROUPS ]#############
+
+[panos]
+wmc2panorama                ansible_host=10.240.129.49
