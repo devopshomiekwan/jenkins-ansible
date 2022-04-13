@@ -4,10 +4,8 @@ pipeline {
 	stages{
 		stage('Hello'){
 	    	steps {
-	      		sh '''
-	      			python --version
-	      			ansible --version
-	      		'''
+	      		sh 'python --version'
+	      		sh 'ansible --version'
 	    }
 	  }
 	}
